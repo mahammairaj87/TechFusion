@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>FurEver Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="ticker" id="tickerText">Welcome to FurEver Care • They Deserve Forever Love!</div>
+
+    <header>
+        <div class="logo">🐾 FurEver Care</div>
+        <nav>
+
+            <a href="#home">Home</a><a href="#care">Pet Care</a><a href="#products">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="#vet">Veterinarian</a>
+            <a href="#shelter">Adoption</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <p class="small-title">PET CARE PLATFORM</p>
+            <h1>They Deserve<br><span>Forever Love.</span>
+
+            </h1>
+            <p>Everything you need to care for, protect and love your furry friends.</p>
+
+            <div class="welcome-box"><label>Your First Name</label>
+
+
+                <input id="userName" placeholder="Enter your name">
+
+
+                <label>Select User Type</label>
+                <div class="radio-row">
+
+                    <label><input type="radio" name="role" value="owner" checked> Pet Owner</label>
+
+                    <label><input type="radio" name="role" value="vet"> Veterinarian</label>
+
+                    <label><input type="radio" name="role" value="shelter"> Animal Shelter</label>
+                </div>
+
+                <button onclick="startPortal()">Enter FurEver Care</button>
+                <p id="welcomeMessage"></p>
+            </div>
+
+        </div>
+        <div class="hero-pets">
+            <div class="pet-circle">🐶</div>
+            <div class="pet-circle small">🐱</div>
+            <div class="paw paw1">🐾</div>
+            <div class="paw paw2">🐾</div>
+        </div>
+    </section>
+
+    <div class="info-strip">
+        <div><b id="clock">--:--:--</b><small>Current Time</small></div>
+        <div><b id="location">Finding...</b><small>Your Location</small></div>
+        <div><b id="visitors">1248</b><small>Happy Visitors</small></div>
+    </div>
+
+    <section id="care" class="section">
+        <div class="section-title">
+            <p>CARE FOR YOUR BEST FRIEND</p>
+            <h2>Pet Care Sections</h2>
+        </div>
+        <div class="care-grid">
+            <div class="care-card" onclick="openCareCard('profile',this)"><span>🐕</span>
+                <h3>Pet Profile</h3>
+                <p>Keep pet information, breed, age and vaccination details.</p><button
+                    onclick="event.stopPropagation();openCareCard('profile',this.parentElement)">View Profile</button>
+            </div>
+
+
+            <div class="care-card" onclick="openCareCard('feeding',this)"><span>🥣</span>
+                <h3>Feeding Guide</h3>
+                <p>Simple feeding guidance for puppies, adults and cats.</p><button
+                    onclick="event.stopPropagation();openCareCard('feeding',this.parentElement)">View Guide</button>
+            </div>
+
+            <div class="care-card" onclick="openCareCard('grooming',this)"><span>🛁</span>
+                <h3>Grooming Videos</h3>
+                <p>Brushing, bathing and trimming tips.</p><button
+                    onclick="event.stopPropagation();openCareCard('grooming',this.parentElement)">View Tips</button>
+            </div>
+
+            <div class="care-card" onclick="openCareCard('health',this)"><span>❤️</span>
+                <h3>Health Tips</h3>
+                <p>Helpful information about oral care and wellness.</p><button
+                    onclick="event.stopPropagation();openCareCard('health',this.parentElement)">Read Tips</button>
+            </div>
+
+            <div class="care-card" onclick="openCareCard('training',this)"><span>🎓</span>
+                <h3>Training Tips</h3>
+                <p>Easy training ideas for your pets.</p><button
+                    onclick="event.stopPropagation();openCareCard('training',this.parentElement)">Learn More</button>
+            </div>
+        </div>
+
+
+        <div id="careDetails" class="care-details">
+            <div class="care-details-header">
+                <div><span id="careDetailIcon">🐕</span>
+                    <h2 id="careDetailTitle">Pet Profile</h2>
+                </div><button class="care-close" onclick="closeCareCard()">×</button>
+            </div>
+            <div class="care-details-content">
+                <div class="care-description">
+                    <p id="careDetailDescription"></p>
+                    <h3>What you can do:</h3>
+                    <ul id="careDetailList"></ul>
+                    <button class="care-main-btn" id="careMainButton">Get Started</button>
+                </div>
+
+                <div class="care-info-box">
+                    <h3 id="careInfoTitle">Why is this important?</h3>
+                    <div id="careInfoContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pet-form">
+            <h2>Create Pet Profile</h2>
+            <div class="form-grid"></div>
+
+            <input id="petName" placeholder="Pet Name"><select id="species">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Rabbit</option>
+            </select>
+
+            <input id="breed" placeholder="Breed"><input id="age" type="number" placeholder="Age"><input
+                id="vaccination" placeholder="Vaccination Info">
+
+        </div><button onclick="savePet()">Save Pet Profile</button>
+        <p id="petResult"></p>
+        </div>
+    </section>
+
+    <section id="products" class="section light">
+        <div class="section-title">
+            <p>SHOP FOR YOUR PET</p>
+            <h2>Pet Product Showcase</h2>
+        </div>
+
+        <div class="filters"><input id="searchBox" onkeyup="displayProducts()" placeholder="Search products...">
+
+            <select id="categoryFilter" onchange="displayProducts()">
+                <option>All</option>
+                <option value="Food">Dog/Cat Food</option>
+                <option value="Toys">Toys</option>
+                <option value="Grooming">Grooming Essentials</option>
+                <option value="Bedding">Bedding & Apparel</option>
+                <option value="Health">Health Supplements</option>
+            </select>
+
+            <select id="sortFilter" onchange="displayProducts()">
+                <option value="default">Sort Products</option>
+                <option value="low">Price Low to High</option>
+                <option value="high">Price High to Low</option>
+            </select>
+        </div>
+
+        <div id="productList" class="product-grid"></div>
+    </section>
+
+    <section id="vet" class="section">
+        <div class="section-title">
+            <p>PROFESSIONAL HELP</p>
+            <h2>Veterinarian</h2>
+        </div>
+
+        <div class="vet-box">
+            <div class="vet-photo">👩‍⚕️</div>
+            <div>
+                <h2>Dr. Sarah Ahmed</h2>
+                <p><b>Specialization:</b> Small Animal Care</p>
+                <p><b>Contact:</b> 0300-1234567</p>
+                <p>Experienced veterinarian providing general pet wellness guidance.</p>
+                <h3>Appointment Slots</h3>
+
+                <div class="slots"><span>10:00 AM - Booked</span><span>12:00 PM - Available</span><span>03:00 PM -
+                        Available</span></div>
+            </div>
+        </div>
+
+        <div class="medical">
+            <h2>Sample Medical History</h2>
+            <table>
+                <tr>
+                    <th>Pet</th>
+                    <th>Condition</th>
+                    <th>Treatment</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>Buddy</td>
+                    <td>Skin Allergy</td>
+                    <td>Medication</td>
+                    <td>Improving</td>
+                </tr>
+                <tr>
+                    <td>Milo</td>
+                    <td>Vaccination</td>
+                    <td>Routine Vaccine</td>
+                    <td>Complete</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="shelter" class="section light">
+        <div class="section-title">
+            <p>GIVE A PET A HOME</p>
+            <h2>Adoptable Pets</h2>
+        </div>
+
+        <div class="animal-filters"><button onclick="filterAnimals('All')">All</button><button
+                onclick="filterAnimals('Dog')">Dogs</button><button onclick="filterAnimals('Cat')">Cats</button><button
+                onclick="filterAnimals('Rabbit')">Rabbits</button></div>
+
+        <div id="animalList" class="animal-grid"></div>
+        <div class="success">
+            <h2>Adoption Success Stories</h2>
+            <p>“Luna found a loving family and is now enjoying her new home.”</p>
+            <p>“Max was adopted during our adoption drive.”</p>
+        </div>
+
+        <div class="event-box">
+            <h3>Upcoming Event</h3>
+            <p>🐾 Community Adoption Drive — Saturday, 11:00 AM</p>
+            <p>📍 FurEver Care Shelter</p>
+        </div>
+    </section>
+
+    <section class="emergency">
+        <div>
+            <p>NEED HELP?</p>
+            <h2>Emergency & Vet Help</h2>
+            <p>Keep these numbers available for urgent situations.</p>
+        </div>
+
+        <div class="emergency-numbers"><span>Vet Help: 0300-1234567</span><span>Pet Emergency: 1122</span><span>Animal
+                Rescue: 0301-7654321</span></div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="section-title">
+            <p>WE WOULD LOVE TO HEAR FROM YOU</p>
+            <h2>Feedback & Contact</h2>
+        </div>
+
+        <div class="contact-grid">
+            <form onsubmit="submitFeedback(event)"><input id="feedbackName" required placeholder="Your Name"><input
+                    id="feedbackEmail" type="email" required placeholder="Your Email">
+
+                <textarea id="feedbackText" required placeholder="Your Feedback"></textarea><button>Send
+                    Feedback</button>
+                <p id="feedbackResult"></p>
+            </form>
+
+            <div class="contact-card">
+                <h3>FurEver Care Team</h3>
+                <p>📍 Karachi, Pakistan</p>
+                <p>✉️ info@furevercare.com</p>
+                <p>☎️ 0300-1234567</p>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps?q=Karachi,Pakistan&output=embed" width="100%" height="100%"
+                        style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>🐾 FurEver Care</h2>
+        <p>They Deserve Foroever Love.</p>
+        <p>© 2026 FurEver Care</p>
+    </footer>
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>

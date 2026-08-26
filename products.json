@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Healthy Dog Food",
+    "category": "Food",
+    "price": 2500,
+    "icon": "\ud83e\udd63",
+    "desc": "Nutritious food for healthy and active dogs."
+  },
+  {
+    "name": "Cat Crunch Food",
+    "category": "Food",
+    "price": 1900,
+    "icon": "\ud83d\udc1f",
+    "desc": "Tasty daily food for cats."
+  },
+  {
+    "name": "Chew Toy",
+    "category": "Toys",
+    "price": 850,
+    "icon": "\ud83e\uddb4",
+    "desc": "Fun toy for active pets."
+  },
+  {
+    "name": "Ball Toy",
+    "category": "Toys",
+    "price": 650,
+    "icon": "\u26bd",
+    "desc": "Simple and fun pet play ball."
+  },
+  {
+    "name": "Pet Shampoo",
+    "category": "Grooming",
+    "price": 1200,
+    "icon": "\ud83e\uddf4",
+    "desc": "Gentle shampoo for regular grooming."
+  },
+  {
+    "name": "Grooming Brush",
+    "category": "Grooming",
+    "price": 950,
+    "icon": "\ud83e\udeae",
+    "desc": "Brush for keeping fur clean."
+  },
+  {
+    "name": "Pet Bed",
+    "category": "Bedding",
+    "price": 4500,
+    "icon": "\ud83d\udecf\ufe0f",
+    "desc": "Soft and comfortable pet bed."
+  },
+  {
+    "name": "Pet Jacket",
+    "category": "Bedding",
+    "price": 2200,
+    "icon": "\ud83e\udde5",
+    "desc": "Comfortable apparel for pets."
+  },
+  {
+    "name": "Pet Vitamins",
+    "category": "Health",
+    "price": 1800,
+    "icon": "\ud83d\udc8a",
+    "desc": "Sample health supplement listing."
+  }
+]

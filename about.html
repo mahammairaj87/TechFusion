@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FurEver Care</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fdf8f5;
+            color: #29483c;
+        }
+
+        /* Ticker Bar */
+        .ticker {
+            background-color: #29483c;
+            color: #ffffff;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #29483c;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #29483c;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a:hover, nav a[href="about.html"] {
+            color: #d9531e;
+        }
+
+        /* Hero Banner */
+        .hero-section {
+            text-align: center;
+            padding: 70px 20px 50px;
+            background: linear-gradient(180deg, #f5e9df 0%, #fdf8f5 100%);
+        }
+
+        .hero-section h1 {
+            font-size: 42px;
+            color: #29483c;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            color: #4a5d55;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Content Layout */
+        .about-wrapper {
+            max-width: 1150px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        /* Grid Sections */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .about-card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eae2db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-card .card-icon {
+            font-size: 32px;
+            color: #d9531e;
+            margin-bottom: 20px;
+        }
+
+        .about-card h2 {
+            font-size: 24px;
+            color: #1e3932;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Statistics Counter */
+        .stats-section {
+            background-color: #1e3932;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: #f7a072;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .stat-item p {
+            font-size: 15px;
+            color: #d1dcd7;
+        }
+
+        /* Core Values Section */
+        .values-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .values-section h2 {
+            font-size: 32px;
+            color: #1e3932;
+            margin-bottom: 30px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .value-box {
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 10px;
+            border: 1px solid #eae2db;
+            text-align: center;
+        }
+
+        .value-box i {
+            font-size: 28px;
+            color: #d9531e;
+            margin-bottom: 12px;
+        }
+
+        .value-box h4 {
+            font-size: 18px;
+            color: #1e3932;
+            margin-bottom: 8px;
+        }
+
+        .value-box p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #29483c;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: #d1dcd7;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #a3b8b0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    
+
+   <div class="ticker" id="tickerText">Welcome to FurEver Care • They Deserve Forever Love!</div>
+
+    <header>
+        <div class="logo">🐾 FurEver Care</div>
+        <nav>
+
+            <a href="index.html#home">Home</a><a href="index.html#care">Pet Care</a><a href="index.html#products">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="index.html#vet">Veterinarian</a>
+            <a href="index.html#shelter">Adoption</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <h1>About FurEver Care</h1>
+        <p>Dedicated to nourishing happy, healthy lives for pets and creating lifelong bonds between animals and loving homes.</p>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="about-wrapper">
+        
+        <!-- Story & Mission Grid -->
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="card-icon"><i class="fas fa-heart"></i></div>
+                <h2>Our Story</h2>
+                <p>Founded by passionate animal lovers, <strong>FurEver Care</strong> began with a simple belief: every pet deserves premium nutrition, expert healthcare, and a loving environment.</p>
+                <p>What started as a small community initiative has grown into a comprehensive platform providing top-tier pet supplies, adoption connections, and professional veterinary guidance.</p>
+            </div>
+
+            <div class="about-card">
+                <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                <h2>Our Mission</h2>
+                <p>Our mission is to simplify pet care for owners while prioritizing animal welfare. We ensure easy access to verified adoption shelters and high-quality product selections.</p>
+                <p>We work tirelessly to support rescue operations, educate pet parents, and build a world where no animal is left without care and affection.</p>
+            </div>
+        </div>
+
+        <!-- Statistics Banner -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <h3>2,500+</h3>
+                <p>Pets Adopted</p>
+            </div>
+            <div class="stat-item">
+                <h3>10k+</h3>
+                <p>Happy Pet Parents</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Quality Assured</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support & Guidance</p>
+            </div>
+        </div>
+
+        <!-- Core Values Section -->
+        <div class="values-section">
+            <h2>Why Choose FurEver Care?</h2>
+            <div class="values-grid">
+                <div class="value-box">
+                    <i class="fas fa-award"></i>
+                    <h4>Premium Products</h4>
+                    <p>Only the safest, nutrition-rich foods and toys for your companions.</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-paw"></i>
+                    <h4>Ethical Adoption</h4>
+                    <p>Partnered with trusted shelters to ensure safe animal rehoming.</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-user-md"></i>
+                    <h4>Expert Support</h4>
+                    <p>Direct guidance from certified veterinarians and pet specialists.</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-truck"></i>
+                    <h4>Fast Delivery</h4>
+                    <p>Quick and safe delivery right to your doorstep whenever needed.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <h2>🐾 FurEver Care</h2>
+        <p>They Deserve Foroever Love.</p>
+        <p>© 2026 FurEver Care</p>
+    </footer>
+
+</body>
+</html>

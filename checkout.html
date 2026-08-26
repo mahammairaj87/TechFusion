@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head><meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Checkout | FurEver Care</title><link rel="stylesheet" href="style.css"></head>
+    <body><div class="ticker">Secure Demo Checkout • FurEver Care</div>
+        <header><a class="logo" href="index.html">🐾 FurEver Care</a>
+            <nav><a href="index.html#home">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="cart.html">Cart</a></nav></header>
+                <main class="page-wrap"><div class="page-card">
+                    <h1>Checkout</h1>
+                    <p>Fill the form below to place your product order.</p>
+                    <div class="checkout-grid"><div class="form-card">
+                        <form id="orderForm">
+                            <label>Full Name</label>
+                            <input id="fullName" required placeholder="Enter your full name">
+                            <label>Email</label>
+                            <input id="email" type="email" required placeholder="Enter your email">
+                            <label>Phone Number</label>
+                            <input id="phone" required placeholder="03XX-XXXXXXX">
+                            
+                            <label>Address</label>
+                            <textarea id="address" required placeholder="Enter complete delivery address"></textarea>
+                            <label>City</label><select id="city" required><option value="">Select City</option>
+                                <option>Karachi</option><option>Lahore</option><option>Islamabad</option>
+                                <option>Hyderabad</option></select><label>Payment Method</label>
+                                <select id="payment" required><option value="">Select Payment Method</option>
+                                    <option>Cash on Delivery</option><option>Bank Transfer</option>
+                                    <option>Card (Demo)</option></select>
+                                    <button class="big-btn" type="submit">Place Order</button>
+                                </form>
+                            </div><div>
+                                <h2>Order Summary</h2>
+                                <div id="summary"></div><h2 id="sumTotal"></h2></div>
+                            </div></div></main><script src="shop.js"></script>
+                            <script>function renderSummary(){let c=getCart();summary.innerHTML=c.length?c.map(p=>`<p>${p.icon} ${p.name} × ${p.qty} — <b>PKR ${(p.price*p.qty).toLocaleString()}</b></p>`).join(''):'<p>Your cart is empty. <a href="index.html#products">Shop now</a></p>';sumTotal.textContent=c.length?'Total: PKR '+c.reduce((a,p)=>a+p.price*p.qty,0).toLocaleString():''}document.addEventListener('DOMContentLoaded',renderSummary);document.getElementById('orderForm').addEventListener('submit',function(e){e.preventDefault();let c=getCart();if(!c.length){alert('Please add a product to your cart first.');return}let order={orderId:'FC-'+Date.now(),customer:{name:fullName.value,email:email.value,phone:phone.value,address:address.value,city:city.value},payment:payment.value,items:c,total:c.reduce((a,p)=>a+p.price*p.qty,0),date:new Date().toLocaleString()};localStorage.setItem('fureverLastOrder',JSON.stringify(order));saveCart([]);alert('Your product order has been placed successfully.');location.href='order-success.html?id='+encodeURIComponent(order.orderId)})
+                            </script>
+                            </body>
+                            </html>

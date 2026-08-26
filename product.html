@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Product | FurEver Care</title><link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="ticker">Welcome to FurEver Care • They Deserve Forever Love!</div>
+        <header><a class="logo" href="index.html">🐾 FurEver Care</a>
+            <nav>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#care">Pet Care</a>
+                <a href="index.html#products">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html#vet">Veterinarian</a>
+                <a href="index.html#shelter">Adoption</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cart.html">🛒 Cart</a>
+            </nav>
+        </header>
+        <main class="page-wrap">
+            <div class="page-card" id="productPage">
+
+            </div>
+        </main>
+        <footer>
+            <h2>🐾 FurEver Care</h2><p>They Deserve Forever Love.</p>
+        </footer>
+        <script src="shop.js"></script>
+        <script>document.addEventListener('DOMContentLoaded',()=>{const n=new URLSearchParams(location.search).get('name');const p=PRODUCTS.find(x=>x.name===n)||PRODUCTS[0];document.title=p.name+' | FurEver Care';document.getElementById('productPage').innerHTML=`<div class="page-product"><div class="big-product-icon">${p.icon}</div><div><div class="category">${p.category}</div><h1>${p.name}</h1><p>${p.desc}</p><h2 class="price">PKR ${p.price.toLocaleString()}</h2><p>✓ Available in stock<br>✓ Quality pet-care product<br>✓ Easy ordering from FurEver Care</p><div class="qty"><button onclick="changeQty(-1)">−</button><input id="qty" value="1" readonly><button onclick="changeQty(1)">+</button></div><button class="big-btn secondary-btn" onclick="addCurrent('${p.name.replace(/'/g,"\\'")}')">Add to Cart</button> <button class="big-btn" onclick="buyCurrent('${p.name.replace(/'/g,"\\'")}')">Buy Now</button><p><a class="back-link" href="index.html#products">← Back to Products</a></p></div></div>`;window.changeQty=function(x){let q=Math.max(1,Number(document.getElementById('qty').value)+x);document.getElementById('qty').value=q};window.addCurrent=function(name){addToCart(name,Number(document.getElementById('qty').value));location.href='cart.html'};window.buyCurrent=function(name){addToCart(name,Number(document.getElementById('qty').value));location.href='checkout.html'};});
+        </script>
+        </body>
+        </html>

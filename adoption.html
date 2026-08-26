@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Adoption | FurEver Care</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="ticker">Give a Pet a Home • FurEver Care Adoption</div>
+        
+        <header><a class="logo" href="index.html">🐾 FurEver Care</a><nav>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#shelter">Adoption</a>
+            <a href="index.html#products">Products</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    <main class="page-wrap">
+        <div class="page-card" id="adoptPage"></div>
+    </main>
+    <script src="shop.js"></script>
+    <script>const A=[{name:'Buddy',type:'Dog',age:'2 Years',breed:'Labrador',icon:'🐶',desc:'Friendly and playful dog looking for a home.'},{name:'Luna',type:'Cat',age:'1 Year',breed:'Persian',icon:'🐱',desc:'Calm cat who loves attention.'},{name:'Max',type:'Dog',age:'3 Years',breed:'Beagle',icon:'🐕',desc:'Active and friendly family dog.'},{name:'Snowy',type:'Rabbit',age:'8 Months',breed:'White Rabbit',icon:'🐰',desc:'Quiet and gentle rabbit.'}];let a=A.find(x=>x.name===new URLSearchParams(location.search).get('name'))||A[0];adoptPage.innerHTML=`<div class="page-product"><div class="big-product-icon">${a.icon}</div><div><h1>${a.name}</h1><p><b>${a.type}</b> • ${a.age} • ${a.breed}</p><p>${a.desc}</p><h3>Adoption Request</h3><form class="form-card" id="adoptForm"><input id="adoptName" required placeholder="Your Name"><input id="adoptPhone" required placeholder="Phone Number"><input id="adoptEmail" required type="email" placeholder="Email"><textarea id="adoptAddress" required placeholder="Your Address"></textarea><button class="big-btn">Submit Adoption Request</button></form><p><a class="back-link" href="index.html#shelter">← Back to Adoption</a></p></div></div>`;adoptForm.onsubmit=e=>{e.preventDefault();localStorage.setItem('fureverAdoption',JSON.stringify({pet:a.name,name:adoptName.value,phone:adoptPhone.value,email:adoptEmail.value,address:adoptAddress.value,date:new Date().toLocaleString()}));alert('Your adoption request has been submitted successfully!');location.href='index.html#shelter'}
+    </script>
+    </body>
+    </html>
